@@ -25,6 +25,7 @@ variable "rt_id" {
 }
 variable "tags" {
   type        = map(any)
+  default     = null
   description = "map of tags"
 }
 variable "map_public_ip_on_launch" {
