@@ -5,6 +5,10 @@ resource "aws_subnet" "subnet" {
   cidr_block              = each.key
   map_public_ip_on_launch = var.map_public_ip_on_launch
 
+  lifecycle {
+    ignore_changes = [tags]
+  }
+
   tags = merge(var.tags, { Name = "${var.name}${index(var.cidr, each.key) + 1}" })
 }
 
